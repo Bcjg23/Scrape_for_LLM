@@ -1,0 +1,22 @@
+## Scraping options
+
+This repo explore tools to extract text from commercial websites to use un training LLM models.
+
+### (Zyte Scrapy Cloud)[https://www.zyte.com/]
+It helps to host and monitor your Scrapy spiders in the cloud
+Pros:
+- The platform makes easy to make scrapers without code relatively easy
+- The Dashboard shows when the spiders is running, errors and logs
+- You can use the scrapers independently of the website as they have a free python library  
+Pros:
+- The website is not easy for begginers
+- It is a paid option
+- The free option does not allow access to scraped data, only a sample
+
+### (LLM Reader)[https://github.com/m92vyas/llm-reader/tree/main]
+Pros:
+- This is a simple but efficient code for webscrapping
+- It uses selenium as base 
+- It works for dynamic pages
+Cons:
+- You have to manage proxies on your own
