@@ -13,6 +13,9 @@ Pros:
 - It is a paid option
 - The free option does not allow access to scraped data, only a sample
 
+### (Jina Reader)[https://jina.ai/reader/]
+
+
 ### (LLM Reader)[https://github.com/m92vyas/llm-reader/tree/main]
 Pros:
 - This is a simple but efficient code for webscrapping
