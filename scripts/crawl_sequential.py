@@ -38,7 +38,7 @@ async def crawl_sequential(urls: List[str], names:List[str]):
 
     try:
         session_id = "session1"  # Reuse the same session across all URLs
-        for url,name in urls, names:
+        for url,name in zip(urls,names):
             result = await crawler.arun(
                 url=url,
                 config=crawl_config,
@@ -47,14 +47,14 @@ async def crawl_sequential(urls: List[str], names:List[str]):
             if result.success:
                 print(f"Successfully crawled: {url}")
                 # E.g. check markdown length
-                print(f"Markdown length: {len(result.markdown_v2.raw_markdown)}")
+                #print(f"Markdown length: {len(result.markdown_v2.raw_markdown)}")
                 # Save to txt
                 fname = name.replace(" ", "_").replace("-", "_")
-                with open(f"{path}/outputs/{fname}.txt", "w") as txt_file:
-                    txt_file.write(result.cleaned_html)
+                with open(f"{fname}.txt", "w") as txt_file:
+                    txt_file.write(print(result.cleaned_html))
                 # Save markdown
-                with open(f"{path}/outputs/{fname}.md", "w") as md_file:
-                    md_file.write(result.raw_markdown)
+                with open(f"{fname}.md", "w") as md_file:
+                    md_file.write(print(result.markdown_v2.raw_markdown))
             else:
                 print(f"Failed: {url} - Error: {result.error_message}")
     finally:
@@ -64,9 +64,9 @@ async def crawl_sequential(urls: List[str], names:List[str]):
 
 
 async def main():
-    urls = ['https://www.aircanada.com/ca/en/aco/home/plan/check-in-information.html',
-            'https://www.aircanada.com/ca/en/aco/home/plan/travel-requirements.html']
-    names = ['Check-In Information', 'Travel Requirements']
+    urls = ['https://www.aircanada.com/ca/en/aco/home/plan/check-in-information.html'],
+            #'https://www.aircanada.com/ca/en/aco/home/plan/travel-requirements.html']
+    names = ['Check-In Information']#, 'Travel Requirements']
     if urls:
         print(f"Found {len(urls)} URLs to crawl")
         await crawl_sequential(urls,names)
